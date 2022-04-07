@@ -23,6 +23,10 @@ const app = Vue.createApp({
                 this.isLoading = false
             },1000)
         },
+        newLaddr(){
+            this.article = ''
+            this.search = ''
+        },
 
     },
     mounted(){  
