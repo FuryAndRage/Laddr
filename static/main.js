@@ -1,5 +1,5 @@
 const BASE_URL = '//localhost:5000'
-const app = Vue.createApp({
+let app = Vue.createApp({
     delimiters:["[[","]]"],
     data(){
         return{
@@ -33,4 +33,18 @@ const app = Vue.createApp({
         this.loadingOff()
     }
 
-}).mount('#app')
+})
+
+
+app.component('Loading',{
+    template:`
+        <div class="d-flex justify-content-center align-items-center " >
+            <div class="row justify-content-center">
+            <div class="spinner-border text-light" role="status" style="width: 5rem; height: 5rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="text-center mt-3">Climbing</p>
+            </div>
+        </div>
+    `,
+})
