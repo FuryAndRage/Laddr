@@ -21,15 +21,7 @@
         </div>
     </header>
     <main class="" >
-      <div class="d-flex justify-content-center align-items-center " v-if="isLoading" >
-        <div class="row justify-content-center">
-          <div class="spinner-border text-light" role="status" style="width: 5rem; height: 5rem;">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p class="text-center mt-3">Climbing</p>
-        </div>
-        
-      </div>
+      <Loading v-if="isLoading"></Loading>
         <div class="" v-if="!article && !isLoading">
           <div class="d-flex justify-content-center align-items-center">
             <h1 class="mt-2">  Laddr</h1>
@@ -67,6 +59,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/vue@3"></script>
+    
     <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script>
+     const mountedApp = app.mount("#app")
+    </script>
+    
+
   </body>
 </html>
