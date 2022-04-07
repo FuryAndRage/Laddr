@@ -4,20 +4,29 @@ const app = Vue.createApp({
     data(){
         return{
         article:'',
-        search:''
+        search:'',
+        isLoading: true
         }
     },
     methods:{
         getArticle(){
+            this.isLoading = true;
             axios.get(`${BASE_URL}/api/${this.search}`).then(res=>{
-                this.article = JSON.parse(res.data)
-                console.log(this.article)
+                setTimeout(()=>{
+                    this.article = JSON.parse(res.data);
+                    this.isLoading = false
+                },1000)
             })
+        },
+        loadingOff(){
+            setTimeout(()=>{
+                this.isLoading = false
+            },1000)
         },
 
     },
-    mounted(){
-    
+    mounted(){  
+        this.loadingOff()
     }
 
 }).mount('#app')
