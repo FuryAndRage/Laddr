@@ -35,7 +35,6 @@ let app = Vue.createApp({
 
 })
 
-
 app.component('Loading',{
     template:`
         <div class="d-flex justify-content-center align-items-center " >
