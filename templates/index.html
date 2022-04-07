@@ -16,17 +16,7 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
     <header class="mb-auto">
         <div>
-        <div class="float-md-start mb-0" @click="article=''">
-          <!-- <div class="d-flex justify-content-center align-items-center">
-            <h3>Laddr </h3>
-            <div class="ladder" style="transform: rotate(40deg);margin-right: -.5em;">
-              <span class="bi bi-ladder fs-1" ></span>
-            </div>
-            <div class="bricks">
-              <span class="bi bi-bricks fs-1"></span>
-            </div>
-          </div> -->
-        </div>
+        <h3 class="float-md-start mb-0" @click="article=''"></h3>
         <nav class="nav nav-masthead justify-content-center float-md-center fixed-top bg-dark">
             <a class="nav-link active" aria-current="page" href="javascript:void(0)" @click="article=''" v-if="article">Create a New Laddr</a>
         </nav>
@@ -42,9 +32,7 @@
             <div class="bricks">
               <span class="bi bi-bricks fs-1"></span>
             </div>
-            
           </div>
-            
             <p class="lead">
                 Climb the wall to see what's beyond
             </p>
@@ -54,7 +42,6 @@
             <button class="btn btn-lg btn-secondary fw-bold border-white bg-white px-5 rounded-pill" @click="getArticle">Climb</button>
         </div>
         <div class="row my-5 justify-content-center" v-else>
-            
             <div class="col-md-12 text-center">
                 <h1 v-text="article.heading"></h1>
                 <img class="img-fluid rounded my-5" :src="article.img" style="height: 20em;width: 100%;">
