@@ -16,12 +16,21 @@
         <div>
         <h3 class="float-md-start mb-0" @click="article=''"></h3>
         <nav class="nav nav-masthead justify-content-center float-md-center fixed-top bg-dark">
-            <a class="nav-link active" aria-current="page" href="javascript:void(0)" @click="article=''" v-if="article">Create a New Laddr</a>
+            <a class="nav-link active" aria-current="page" href="javascript:void(0)" @click="article=''" v-if="article">Create a new Laddr</a>
         </nav>
         </div>
     </header>
     <main class="" >
-        <div class="" v-if="!article">
+      <div class="d-flex justify-content-center align-items-center " v-if="isLoading" >
+        <div class="row justify-content-center">
+          <div class="spinner-border text-light" role="status" style="width: 5rem; height: 5rem;">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="text-center mt-3">Climbing</p>
+        </div>
+        
+      </div>
+        <div class="" v-if="!article && !isLoading">
           <div class="d-flex justify-content-center align-items-center">
             <h1 class="mt-2">  Laddr</h1>
             <div class="ladder" style="transform: rotate(40deg);margin-right: -.5em;">
@@ -39,10 +48,10 @@
             </p>
             <button class="btn btn-lg btn-secondary fw-bold border-white bg-white px-5 rounded-pill" @click="getArticle">Climb</button>
         </div>
-        <div class="row my-5 justify-content-center" v-else>
+        <div class="row my-5 justify-content-center" v-if="article && !isLoading">
             <div class="col-md-12 text-center">
                 <h1 v-text="article.heading"></h1>
-                <img class="img-fluid rounded my-5" :src="article.img" style="height: 20em;width: 100%;">
+                <img class="img-fluid rounded my-5" :src="article.img" style="height: 20em;width: 100%;" v-cloak>
                 <div class="article mt-5">
                     <div class="row" v-for="item in article.article">
                         <p class="lead" v-text="item"></p>
