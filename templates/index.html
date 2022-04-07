@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Laddr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="app">
+    <header class="mb-auto">
+        <div>
+        <div class="float-md-start mb-0" @click="article=''">
+          <!-- <div class="d-flex justify-content-center align-items-center">
+            <h3>Laddr </h3>
+            <div class="ladder" style="transform: rotate(40deg);margin-right: -.5em;">
+              <span class="bi bi-ladder fs-1" ></span>
+            </div>
+            <div class="bricks">
+              <span class="bi bi-bricks fs-1"></span>
+            </div>
+          </div> -->
+        </div>
+        <nav class="nav nav-masthead justify-content-center float-md-center fixed-top bg-dark">
+            <a class="nav-link active" aria-current="page" href="javascript:void(0)" @click="article=''" v-if="article">Create a New Laddr</a>
+        </nav>
+        </div>
+    </header>
+    <main class="" >
+        <div class="" v-if="!article">
+          <div class="d-flex justify-content-center align-items-center">
+            <h1 class="mt-2">  Laddr</h1>
+            <div class="ladder" style="transform: rotate(40deg);margin-right: -.5em;">
+              <span class="bi bi-ladder fs-1" ></span>
+            </div>
+            <div class="bricks">
+              <span class="bi bi-bricks fs-1"></span>
+            </div>
+            
+          </div>
+            
+            <p class="lead">
+                Climb the wall to see what's beyond
+            </p>
+            <p class="lead my-5">
+                <input type="text" class="form-control rounded-pill text-center" placeholder="Enter article url" name="search" v-model="search">
+            </p>
+            <button class="btn btn-lg btn-secondary fw-bold border-white bg-white px-5 rounded-pill" @click="getArticle">Climb</button>
+        </div>
+        <div class="row my-5 justify-content-center" v-else>
+            
+            <div class="col-md-12 text-center">
+                <h1 v-text="article.heading"></h1>
+                <img class="img-fluid rounded my-5" :src="article.img" style="height: 20em;width: 100%;">
+                <div class="article mt-5">
+                    <div class="row" v-for="item in article.article">
+                        <p class="lead" v-text="item"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto text-white-50">
+    </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+  </body>
+</html>
